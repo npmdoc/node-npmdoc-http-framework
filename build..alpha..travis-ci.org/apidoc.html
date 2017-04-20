@@ -1,0 +1,2380 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/Raynos/http-framework"
+
+    >http-framework (v1.2.0)</a>
+</h1>
+<h4>A web framework based purely on `require('http')`</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.http-framework">module http-framework</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.http-framework.config_chain">
+            function <span class="apidocSignatureSpan">http-framework.</span>config_chain
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.http-framework.cookies">
+            function <span class="apidocSignatureSpan">http-framework.</span>cookies
+            <span class="apidocSignatureSpan">(request, response, keys)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.http-framework.csrf_lite">
+            function <span class="apidocSignatureSpan">http-framework.</span>csrf_lite
+            <span class="apidocSignatureSpan">(token)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.http-framework.filed">
+            function <span class="apidocSignatureSpan">http-framework.</span>filed
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.http-framework.generic_session">
+            function <span class="apidocSignatureSpan">http-framework.</span>generic_session
+            <span class="apidocSignatureSpan">(req, res, store, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.http-framework.hyperscript">
+            function <span class="apidocSignatureSpan">http-framework.</span>hyperscript
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.http-framework.redsess">
+            function <span class="apidocSignatureSpan">http-framework.</span>redsess
+            <span class="apidocSignatureSpan">(req, res, opt)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.http-framework.st">
+            function <span class="apidocSignatureSpan">http-framework.</span>st
+            <span class="apidocSignatureSpan">(opt)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">http-framework.</span>cookies.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">http-framework.</span>multiparty</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">http-framework.</span>pwd</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">http-framework.</span>redsess.prototype</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.http-framework.config_chain">module http-framework.config_chain</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.http-framework.config_chain.config_chain">
+            function <span class="apidocSignatureSpan">http-framework.</span>config_chain
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.http-framework.config_chain.ConfigChain">
+            function <span class="apidocSignatureSpan">http-framework.config_chain.</span>ConfigChain
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.http-framework.config_chain.env">
+            function <span class="apidocSignatureSpan">http-framework.config_chain.</span>env
+            <span class="apidocSignatureSpan">(prefix, env)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.http-framework.config_chain.find">
+            function <span class="apidocSignatureSpan">http-framework.config_chain.</span>find
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.http-framework.config_chain.json">
+            function <span class="apidocSignatureSpan">http-framework.config_chain.</span>json
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.http-framework.config_chain.parse">
+            function <span class="apidocSignatureSpan">http-framework.config_chain.</span>parse
+            <span class="apidocSignatureSpan">(content, file, type)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.http-framework.cookies">module http-framework.cookies</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.http-framework.cookies.cookies">
+            function <span class="apidocSignatureSpan">http-framework.</span>cookies
+            <span class="apidocSignatureSpan">(request, response, keys)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.http-framework.cookies.Cookie">
+            function <span class="apidocSignatureSpan">http-framework.cookies.</span>Cookie
+            <span class="apidocSignatureSpan">(name, value, attrs)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.http-framework.cookies.connect">
+            function <span class="apidocSignatureSpan">http-framework.cookies.</span>connect
+            <span class="apidocSignatureSpan">(keys)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.http-framework.cookies.express">
+            function <span class="apidocSignatureSpan">http-framework.cookies.</span>express
+            <span class="apidocSignatureSpan">(keys)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.http-framework.cookies.prototype">module http-framework.cookies.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.http-framework.cookies.prototype.get">
+            function <span class="apidocSignatureSpan">http-framework.cookies.prototype.</span>get
+            <span class="apidocSignatureSpan">(name, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.http-framework.cookies.prototype.set">
+            function <span class="apidocSignatureSpan">http-framework.cookies.prototype.</span>set
+            <span class="apidocSignatureSpan">(name, value, opts)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.http-framework.csrf_lite">module http-framework.csrf_lite</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.http-framework.csrf_lite.csrf_lite">
+            function <span class="apidocSignatureSpan">http-framework.</span>csrf_lite
+            <span class="apidocSignatureSpan">(token)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.http-framework.csrf_lite.html">
+            function <span class="apidocSignatureSpan">http-framework.csrf_lite.</span>html
+            <span class="apidocSignatureSpan">(token)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.http-framework.csrf_lite.valid">
+            function <span class="apidocSignatureSpan">http-framework.csrf_lite.</span>valid
+            <span class="apidocSignatureSpan">(data, token)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.http-framework.csrf_lite.validate">
+            function <span class="apidocSignatureSpan">http-framework.csrf_lite.</span>validate
+            <span class="apidocSignatureSpan">(data, token)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.http-framework.filed">module http-framework.filed</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.http-framework.filed.filed">
+            function <span class="apidocSignatureSpan">http-framework.</span>filed
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.http-framework.filed.File">
+            function <span class="apidocSignatureSpan">http-framework.filed.</span>File
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.http-framework.generic_session">module http-framework.generic_session</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.http-framework.generic_session.generic_session">
+            function <span class="apidocSignatureSpan">http-framework.</span>generic_session
+            <span class="apidocSignatureSpan">(req, res, store, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.http-framework.generic_session.MemoryStore">
+            function <span class="apidocSignatureSpan">http-framework.generic_session.</span>MemoryStore
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.http-framework.generic_session.filter">
+            function <span class="apidocSignatureSpan">http-framework.generic_session.</span>filter
+            <span class="apidocSignatureSpan">(store, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.http-framework.generic_session.middleware">
+            function <span class="apidocSignatureSpan">http-framework.generic_session.</span>middleware
+            <span class="apidocSignatureSpan">(store, options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.http-framework.hyperscript">module http-framework.hyperscript</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.http-framework.hyperscript.hyperscript">
+            function <span class="apidocSignatureSpan">http-framework.</span>hyperscript
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.http-framework.hyperscript.cleanup">
+            function <span class="apidocSignatureSpan">http-framework.hyperscript.</span>cleanup
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.http-framework.hyperscript.context">
+            function <span class="apidocSignatureSpan">http-framework.hyperscript.</span>context
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.http-framework.multiparty">module http-framework.multiparty</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.http-framework.multiparty.Form">
+            function <span class="apidocSignatureSpan">http-framework.multiparty.</span>Form
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.http-framework.pwd">module http-framework.pwd</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.http-framework.pwd.hash">
+            function <span class="apidocSignatureSpan">http-framework.pwd.</span>hash
+            <span class="apidocSignatureSpan">(pwd, salt, fn)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.http-framework.pwd.iterations">
+            function <span class="apidocSignatureSpan">http-framework.pwd.</span>iterations
+            <span class="apidocSignatureSpan">(n)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.http-framework.pwd.length">
+            function <span class="apidocSignatureSpan">http-framework.pwd.</span>length
+            <span class="apidocSignatureSpan">(n)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.http-framework.redsess">module http-framework.redsess</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.http-framework.redsess.redsess">
+            function <span class="apidocSignatureSpan">http-framework.</span>redsess
+            <span class="apidocSignatureSpan">(req, res, opt)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.http-framework.redsess.close">
+            function <span class="apidocSignatureSpan">http-framework.redsess.</span>close
+            <span class="apidocSignatureSpan">(cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.http-framework.redsess.createClient">
+            function <span class="apidocSignatureSpan">http-framework.redsess.</span>createClient
+            <span class="apidocSignatureSpan">(conf)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.http-framework.redsess.destroy">
+            function <span class="apidocSignatureSpan">http-framework.redsess.</span>destroy
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.http-framework.redsess.end">
+            function <span class="apidocSignatureSpan">http-framework.redsess.</span>end
+            <span class="apidocSignatureSpan">(cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.http-framework.redsess.quit">
+            function <span class="apidocSignatureSpan">http-framework.redsess.</span>quit
+            <span class="apidocSignatureSpan">(cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">http-framework.redsess.</span>client</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.http-framework.redsess.prototype">module http-framework.redsess.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.http-framework.redsess.prototype.del">
+            function <span class="apidocSignatureSpan">http-framework.redsess.prototype.</span>del
+            <span class="apidocSignatureSpan">(k, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.http-framework.redsess.prototype.delAll">
+            function <span class="apidocSignatureSpan">http-framework.redsess.prototype.</span>delAll
+            <span class="apidocSignatureSpan">(cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.http-framework.redsess.prototype.destroy">
+            function <span class="apidocSignatureSpan">http-framework.redsess.prototype.</span>destroy
+            <span class="apidocSignatureSpan">(cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.http-framework.redsess.prototype.get">
+            function <span class="apidocSignatureSpan">http-framework.redsess.prototype.</span>get
+            <span class="apidocSignatureSpan">(k, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.http-framework.redsess.prototype.getAll">
+            function <span class="apidocSignatureSpan">http-framework.redsess.prototype.</span>getAll
+            <span class="apidocSignatureSpan">(cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.http-framework.redsess.prototype.set">
+            function <span class="apidocSignatureSpan">http-framework.redsess.prototype.</span>set
+            <span class="apidocSignatureSpan">(k, v, cb)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.http-framework.st">module http-framework.st</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.http-framework.st.st">
+            function <span class="apidocSignatureSpan">http-framework.</span>st
+            <span class="apidocSignatureSpan">(opt)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.http-framework.st.Mount">
+            function <span class="apidocSignatureSpan">http-framework.st.</span>Mount
+            <span class="apidocSignatureSpan">(opt)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.http-framework" id="apidoc.module.http-framework">module http-framework</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.http-framework.config_chain" id="apidoc.element.http-framework.config_chain">
+        function <span class="apidocSignatureSpan">http-framework.</span>config_chain
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">config_chain = function () {
+  var args = [].slice.call(arguments)
+    , conf = new ConfigChain()
+
+  while(args.length) {
+    var a = args.shift()
+    if(a) conf.push
+          ( &#x27;string&#x27; === typeof a
+            ? json(a)
+            : a )
+  }
+
+  return conf
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.http-framework.cookies" id="apidoc.element.http-framework.cookies">
+        function <span class="apidocSignatureSpan">http-framework.</span>cookies
+        <span class="apidocSignatureSpan">(request, response, keys)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Cookies(request, response, keys) {
+  if (!(this instanceof Cookies)) return new Cookies(request, response, keys)
+
+  this.request = request
+  this.response = response
+  this.keys = keys
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.http-framework.csrf_lite" id="apidoc.element.http-framework.csrf_lite">
+        function <span class="apidocSignatureSpan">http-framework.</span>csrf_lite
+        <span class="apidocSignatureSpan">(token)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function csrf(token) {
+  if (token &#x26;&#x26; typeof token === &#x27;string&#x27;)
+    return token
+
+  return crypto.randomBytes(24).toString(&#x27;base64&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.http-framework.filed" id="apidoc.element.http-framework.filed">
+        function <span class="apidocSignatureSpan">http-framework.</span>filed
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">filed = function (options) {
+  return new File(options)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.http-framework.generic_session" id="apidoc.element.http-framework.generic_session">
+        function <span class="apidocSignatureSpan">http-framework.</span>generic_session
+        <span class="apidocSignatureSpan">(req, res, store, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">generic_session = function (req, res, store, options) {
+  return Object.create(Session).init(req, res, store, mkoptions(options))
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.http-framework.hyperscript" id="apidoc.element.http-framework.hyperscript">
+        function <span class="apidocSignatureSpan">http-framework.</span>hyperscript
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function h() {
+  var args = [].slice.call(arguments), e = null
+  function item (l) {
+    var r
+    function parseClass (string) {
+      var m = split(string, /([\.#]?[a-zA-Z0-9_-]+)/)
+      if(/^\.|#/.test(m[1]))
+        e = document.createElement(&#x27;div&#x27;)
+      forEach(m, function (v) {
+        var s = v.substring(1,v.length)
+        if(!v) return
+        if(!e)
+          e = document.createElement(v)
+        else if (v[0] === &#x27;.&#x27;)
+          ClassList(e).add(s)
+        else if (v[0] === &#x27;#&#x27;)
+          e.setAttribute(&#x27;id&#x27;, s)
+      })
+    }
+
+    if(l == null)
+      ;
+    else if(&#x27;string&#x27; === typeof l) {
+      if(!e)
+        parseClass(l)
+      else
+        e.appendChild(r = document.createTextNode(l))
+    }
+    else if(&#x27;number&#x27; === typeof l
+      || &#x27;boolean&#x27; === typeof l
+      || l instanceof Date
+      || l instanceof RegExp ) {
+        e.appendChild(r = document.createTextNode(l.toString()))
+    }
+    //there might be a better way to handle this...
+    else if (isArray(l))
+      forEach(l, item)
+    else if(isNode(l))
+      e.appendChild(r = l)
+    else if(l instanceof Text)
+      e.appendChild(r = l)
+    else if (&#x27;object&#x27; === typeof l) {
+      for (var k in l) {
+        if(&#x27;function&#x27; === typeof l[k]) {
+          if(/^on\w+/.test(k)) {
+            if (e.addEventListener){
+              e.addEventListener(k.substring(2), l[k], false)
+              cleanupFuncs.push(function(){
+                e.removeEventListener(k.substring(2), l[k], false)
+              })
+            }else{
+              e.attachEvent(k, l[k])
+              cleanupFuncs.push(function(){
+                e.detachEvent(k, l[k])
+              })
+            }
+          } else {
+            // observable
+            e[k] = l[k]()
+            cleanupFuncs.push(l[k](function (v) {
+              e[k] = v
+            }))
+          }
+        }
+        else if(k === &#x27;style&#x27;) {
+          if(&#x27;string&#x27; === typeof l[k]) {
+            e.style.cssText = l[k]
+          }else{
+            for (var s in l[k]) (function(s, v) {
+              if(&#x27;function&#x27; === typeof v) {
+                // observable
+                e.style.setProperty(s, v())
+                cleanupFuncs.push(v(function (val) {
+                  e.style.setProperty(s, val)
+                }))
+              } else
+                e.style.setProperty(s, l[k][s])
+            })(s, l[k][s])
+          }
+        } else if (k.substr(0, 5) === &#x22;data-&#x22;) {
+          DataSet(e)[k.substr(5)] = l[k]
+        } else {
+          e[k] = l[k]
+        }
+      }
+    } else if (&#x27;function&#x27; === typeof l) {
+      //assume it&#x27;s an observable!
+      var v = l()
+      e.appendChild(r = isNode(v) ? v : document.createTextNode(v))
+
+      cleanupFuncs.push(l(function (v) {
+        if(isNode(v) &#x26;&#x26; r.parentElement)
+          r.parentElement.replaceChild(v, r), r = v
+        else
+          r.textContent = v
+      }))
+    }
+
+    return r
+  }
+  while(args.length)
+    item(args.shift())
+
+  return e
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.http-framework.redsess" id="apidoc.element.http-framework.redsess">
+        function <span class="apidocSignatureSpan">http-framework.</span>redsess
+        <span class="apidocSignatureSpan">(req, res, opt)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function RedSess(req, res, opt) {
+  if (!(this instanceof RedSess))
+    return new RedSess(req, res, opt)
+
+  opt = opt || {}
+  if (!RedSess.client &#x26;&#x26; !opt.client) {
+    console.error(&#x27;RedSess: no client yet&#x27;, req.url, req.headers)
+    res.statusCode = 503
+    res.setHeader(&#x27;content-type&#x27;, &#x27;text/plain&#x27;)
+    res.setHeader(&#x27;retry-after&#x27;, &#x27;10&#x27;)
+    res.end(&#x27;Redis client not yet loaded.\n&#x27;)
+    return
+  }
+
+  // if we got an array of strings rather than a keygrip, then
+  // keygrip it up.
+  if (opt.keys) {
+    if (!KeyGrip)
+      throw new Error(&#x27;keys provided by KeyGrip not available&#x27;)
+    else if (Array.isArray(opt.keys))
+      this.keys = new KeyGrip(opt.keys)
+    else if (opt.keys instanceof KeyGrip)
+      this.keys = opt.keys
+    else
+      throw new Error(&#x27;invalid keys provided&#x27;)
+  }
+
+  // 2 week sessions by default.
+  this.expire = opt.expire || 60 * 60 * 24 * 14
+
+  // set up the cookies thingie
+  this.cookies = opt.cookies || new Cookies(req, res, this.keys)
+
+  // set the s-cookie
+  var name = this.cookieName = opt.cookieName || &#x27;s&#x27;
+  var expireDate = new Date(Date.now() + (this.expire*1000))
+  var cookieOptions = opt &#x26;&#x26; opt.cookieOptions || {}
+  var copt = util._extend({
+    expires: expireDate,
+    signed: !!this.keys
+  }, cookieOptions)
+
+  var s = this.cookies.get(name, copt)
+  if (!s)
+    s = require(&#x27;crypto&#x27;).randomBytes(30).toString(&#x27;base64&#x27;)
+
+  this.cookies.set(name, s, copt)
+  this.token = s
+
+  if (!this.token)
+    throw new Error(&#x27;could not load session token&#x27;)
+
+  this.id = &#x22;session:&#x22; + this.token
+  this.client = opt.client || RedSess.client
+  this.request = req
+  this.response = res
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.http-framework.st" id="apidoc.element.http-framework.st">
+        function <span class="apidocSignatureSpan">http-framework.</span>st
+        <span class="apidocSignatureSpan">(opt)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function st(opt) {
+  var p, u
+  if (typeof opt === &#x27;string&#x27;) {
+    p = opt
+    opt = arguments[1]
+    if (typeof opt === &#x27;string&#x27;) {
+      u = opt
+      opt = arguments[2]
+    }
+  }
+
+  if (!opt) opt = {}
+  else opt = util._extend({}, opt)
+
+  if (!p) p = opt.path
+  if (typeof p !== &#x27;string&#x27;) throw new Error(&#x27;no path specified&#x27;)
+  p = path.resolve(p)
+  if (!u) u = opt.url
+  if (!u) u = &#x27;&#x27;
+  if (u.charAt(0) !== &#x27;/&#x27;) u = &#x27;/&#x27; + u
+
+  opt.url = u
+  opt.path = p
+
+  var m = new Mount(opt)
+  var fn = m.serve.bind(m)
+  fn._this = m
+  return fn
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.http-framework.config_chain" id="apidoc.module.http-framework.config_chain">module http-framework.config_chain</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.http-framework.config_chain.config_chain" id="apidoc.element.http-framework.config_chain.config_chain">
+        function <span class="apidocSignatureSpan">http-framework.</span>config_chain
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">config_chain = function () {
+  var args = [].slice.call(arguments)
+    , conf = new ConfigChain()
+
+  while(args.length) {
+    var a = args.shift()
+    if(a) conf.push
+          ( &#x27;string&#x27; === typeof a
+            ? json(a)
+            : a )
+  }
+
+  return conf
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.http-framework.config_chain.ConfigChain" id="apidoc.element.http-framework.config_chain.ConfigChain">
+        function <span class="apidocSignatureSpan">http-framework.config_chain.</span>ConfigChain
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function ConfigChain() {
+  EE.apply(this)
+  ProtoList.apply(this, arguments)
+  this._awaiting = 0
+  this._saving = 0
+  this.sources = {}
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.http-framework.config_chain.env" id="apidoc.element.http-framework.config_chain.env">
+        function <span class="apidocSignatureSpan">http-framework.config_chain.</span>env
+        <span class="apidocSignatureSpan">(prefix, env)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">env = function (prefix, env) {
+  env = env || process.env
+  var obj = {}
+  var l = prefix.length
+  for(var k in env) {
+    if(k.indexOf(prefix) === 0)
+      obj[k.substring(l)] = env[k]
+  }
+
+  return obj
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.http-framework.config_chain.find" id="apidoc.element.http-framework.config_chain.find">
+        function <span class="apidocSignatureSpan">http-framework.config_chain.</span>find
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">find = function () {
+  var rel = path.join.apply(null, [].slice.call(arguments))
+
+  function find(start, rel) {
+    var file = path.join(start, rel)
+    try {
+      fs.statSync(file)
+      return file
+    } catch (err) {
+      if(path.dirname(start) !== start) // root
+        return find(path.dirname(start), rel)
+    }
+  }
+  return find(__dirname, rel)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.http-framework.config_chain.json" id="apidoc.element.http-framework.config_chain.json">
+        function <span class="apidocSignatureSpan">http-framework.config_chain.</span>json
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">json = function () {
+  var args = [].slice.call(arguments).filter(function (arg) { return arg != null })
+  var file = path.join.apply(null, args)
+  var content
+  try {
+    content = fs.readFileSync(file,&#x27;utf-8&#x27;)
+  } catch (err) {
+    return
+  }
+  return parse(content, file, &#x27;json&#x27;)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.http-framework.config_chain.parse" id="apidoc.element.http-framework.config_chain.parse">
+        function <span class="apidocSignatureSpan">http-framework.config_chain.</span>parse
+        <span class="apidocSignatureSpan">(content, file, type)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">parse = function (content, file, type) {
+  content = &#x27;&#x27; + content
+  // if we don&#x27;t know what it is, try json and fall back to ini
+  // if we know what it is, then it must be that.
+  if (!type) {
+    try { return JSON.parse(content) }
+    catch (er) { return ini.parse(content) }
+  } else if (type === &#x27;json&#x27;) {
+    if (this.emit) {
+      try { return JSON.parse(content) }
+      catch (er) { this.emit(&#x27;error&#x27;, er) }
+    } else {
+      return JSON.parse(content)
+    }
+  } else {
+    return ini.parse(content)
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.http-framework.cookies" id="apidoc.module.http-framework.cookies">module http-framework.cookies</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.http-framework.cookies.cookies" id="apidoc.element.http-framework.cookies.cookies">
+        function <span class="apidocSignatureSpan">http-framework.</span>cookies
+        <span class="apidocSignatureSpan">(request, response, keys)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Cookies(request, response, keys) {
+  if (!(this instanceof Cookies)) return new Cookies(request, response, keys)
+
+  this.request = request
+  this.response = response
+  this.keys = keys
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.http-framework.cookies.Cookie" id="apidoc.element.http-framework.cookies.Cookie">
+        function <span class="apidocSignatureSpan">http-framework.cookies.</span>Cookie
+        <span class="apidocSignatureSpan">(name, value, attrs)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Cookie(name, value, attrs) {
+  value || (this.expires = new Date(0))
+
+  this.name = name
+  this.value = value || &#x22;&#x22;
+
+  for (var name in attrs) this[name] = attrs[name]
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.http-framework.cookies.connect" id="apidoc.element.http-framework.cookies.connect">
+        function <span class="apidocSignatureSpan">http-framework.cookies.</span>connect
+        <span class="apidocSignatureSpan">(keys)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">connect = function (keys) {
+  return function(req, res, next) {
+    req.cookies = res.cookies = new Cookies(req, res, keys)
+    next()
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.http-framework.cookies.express" id="apidoc.element.http-framework.cookies.express">
+        function <span class="apidocSignatureSpan">http-framework.cookies.</span>express
+        <span class="apidocSignatureSpan">(keys)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">express = function (keys) {
+  return function(req, res, next) {
+    req.cookies = res.cookies = new Cookies(req, res, keys)
+    next()
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.http-framework.cookies.prototype" id="apidoc.module.http-framework.cookies.prototype">module http-framework.cookies.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.http-framework.cookies.prototype.get" id="apidoc.element.http-framework.cookies.prototype.get">
+        function <span class="apidocSignatureSpan">http-framework.cookies.prototype.</span>get
+        <span class="apidocSignatureSpan">(name, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">get = function (name, opts) {
+  var sigName = name + &#x22;.sig&#x22;
+    , header, match, value, remote, data, index
+    , signed = opts &#x26;&#x26; opts.signed !== undefined ? opts.signed : !!this.keys
+
+  header = this.request.headers[&#x22;cookie&#x22;]
+  if (!header) return
+
+  match = header.match(getPattern(name))
+  if (!match) return
+
+  value = match[1]
+  if (!opts || !signed) return value
+
+  remote = this.get(sigName)
+  if (!remote) return
+
+  data = name + &#x22;=&#x22; + value
+  if (!this.keys) throw new Error(&#x27;.keys required for signed cookies&#x27;);
+  index = this.keys.index(data, remote)
+
+  if (index &#x3c; 0) {
+    this.set(sigName, null, {path: &#x22;/&#x22;, signed: false })
+  } else {
+    index &#x26;&#x26; this.set(sigName, this.keys.sign(data), { signed: false })
+    return value
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.http-framework.cookies.prototype.set" id="apidoc.element.http-framework.cookies.prototype.set">
+        function <span class="apidocSignatureSpan">http-framework.cookies.prototype.</span>set
+        <span class="apidocSignatureSpan">(name, value, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">set = function (name, value, opts) {
+  var res = this.response
+    , req = this.request
+    , headers = res.getHeader(&#x22;Set-Cookie&#x22;) || []
+    , secure = req.connection.encrypted
+    , cookie = new Cookie(name, value, opts)
+    , signed = opts &#x26;&#x26; opts.signed !== undefined ? opts.signed : !!this.keys
+
+  if (typeof headers == &#x22;string&#x22;) headers = [headers]
+
+  if (!secure &#x26;&#x26; opts &#x26;&#x26; opts.secure) throw new Error(&#x22;Cannot send secure cookie over unencrypted socket&#x22;)
+
+  cookie.secure = secure
+  if (opts &#x26;&#x26; &#x22;secure&#x22; in opts) cookie.secure = opts.secure
+  if (opts &#x26;&#x26; &#x22;secureProxy&#x22; in opts) cookie.secure = opts.secureProxy
+  headers = pushCookie(headers, cookie)
+
+  if (opts &#x26;&#x26; signed) {
+    if (!this.keys) throw new Error(&#x27;.keys required for signed cookies&#x27;);
+    cookie.value = this.keys.sign(cookie.toString())
+    cookie.name += &#x22;.sig&#x22;
+    headers = pushCookie(headers, cookie)
+  }
+
+  var setHeader = res.set ? http.OutgoingMessage.prototype.setHeader : res.setHeader
+  setHeader.call(res, &#x27;Set-Cookie&#x27;, headers)
+  return this
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.http-framework.csrf_lite" id="apidoc.module.http-framework.csrf_lite">module http-framework.csrf_lite</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.http-framework.csrf_lite.csrf_lite" id="apidoc.element.http-framework.csrf_lite.csrf_lite">
+        function <span class="apidocSignatureSpan">http-framework.</span>csrf_lite
+        <span class="apidocSignatureSpan">(token)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function csrf(token) {
+  if (token &#x26;&#x26; typeof token === &#x27;string&#x27;)
+    return token
+
+  return crypto.randomBytes(24).toString(&#x27;base64&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.http-framework.csrf_lite.html" id="apidoc.element.http-framework.csrf_lite.html">
+        function <span class="apidocSignatureSpan">http-framework.csrf_lite.</span>html
+        <span class="apidocSignatureSpan">(token)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">html = function (token) {
+  // bogus token = no html.
+  // typically, this will result in a failure when the form is posted.
+  if (!token || typeof token !== &#x27;string&#x27;) {
+    console.error(&#x27;WARNING: csrf.html called with no token&#x27;);
+    return &#x27;&#x27;
+  }
+
+  token = token.replace(/&#x22;/g, &#x27;&#x26;quot;&#x27;)
+  return &#x27;&#x3c;input type=hidden name=x-csrf-token value=&#x22;&#x27; + token + &#x27;&#x22;&#x3e;&#x27;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.http-framework.csrf_lite.valid" id="apidoc.element.http-framework.csrf_lite.valid">
+        function <span class="apidocSignatureSpan">http-framework.csrf_lite.</span>valid
+        <span class="apidocSignatureSpan">(data, token)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">valid = function (data, token) {
+  if (!token || typeof token !== &#x27;string&#x27;)
+    return false
+
+  // remove the token, so that you don&#x27;t accidentally save it somewhere.
+  var valid = scmp(data[&#x27;x-csrf-token&#x27;], token)
+  delete data[&#x27;x-csrf-token&#x27;]
+  return valid
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.http-framework.csrf_lite.validate" id="apidoc.element.http-framework.csrf_lite.validate">
+        function <span class="apidocSignatureSpan">http-framework.csrf_lite.</span>validate
+        <span class="apidocSignatureSpan">(data, token)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">validate = function (data, token) {
+  if (!token || typeof token !== &#x27;string&#x27;)
+    return false
+
+  // remove the token, so that you don&#x27;t accidentally save it somewhere.
+  var valid = scmp(data[&#x27;x-csrf-token&#x27;], token)
+  delete data[&#x27;x-csrf-token&#x27;]
+  return valid
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.http-framework.filed" id="apidoc.module.http-framework.filed">module http-framework.filed</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.http-framework.filed.filed" id="apidoc.element.http-framework.filed.filed">
+        function <span class="apidocSignatureSpan">http-framework.</span>filed
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">filed = function (options) {
+  return new File(options)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.http-framework.filed.File" id="apidoc.element.http-framework.filed.File">
+        function <span class="apidocSignatureSpan">http-framework.filed.</span>File
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function File(options) {
+  stream.Stream.call(this)
+
+  this.writable = true
+  this.readable = true
+  this.buffers = []
+
+  var self = this
+
+  if (typeof options === &#x27;string&#x27;) options = {path:options}
+  if (!options.index) options.index = &#x27;index.html&#x27;
+  self.writable = (typeof options.writable === &#x22;undefined&#x22;) ? true : options.writable
+  self.readable = (typeof options.readable === &#x22;undefined&#x22;) ? true : options.readable
+
+  self.path = options.path
+  self.index = options.index
+
+  self.on(&#x27;pipe&#x27;, function (src) {
+    this.src = src
+  })
+
+  this.buffering = true
+
+  this.mimetype = options.mimetype || mime.lookup(this.path.slice(this.path.lastIndexOf(&#x27;.&#x27;)+1))
+
+  var stopBuffering = function () {
+    self.buffering = false
+    while (self.buffers.length) {
+      self.emit(&#x27;data&#x27;, self.buffers.shift())
+    }
+    if (self.ended) self.emit(&#x27;end&#x27;)
+  }
+
+  fs.stat(options.path, function (err, stats) {
+
+    var finish = function (err, stats) {
+      self.stat = stats
+      if (err &#x26;&#x26; err.code === &#x27;ENOENT&#x27; &#x26;&#x26; !self.dest &#x26;&#x26; !self.src) self.src = self.path
+      if (err &#x26;&#x26; !self.dest &#x26;&#x26; !self.src) return self.emit(&#x27;error&#x27;, err)
+      if (err &#x26;&#x26; self.dest &#x26;&#x26; !self.dest.writeHead) return self.emit(&#x27;error&#x27;, err)
+
+      // See if writes are disabled
+      if (self.src &#x26;&#x26; self.src.method &#x26;&#x26;
+          !self.writable &#x26;&#x26; self.dest.writeHead &#x26;&#x26;
+          (self.src.method === &#x27;PUT&#x27; || self.src.method === &#x27;POST&#x27;)) {
+        self.dest.writeHead(405, {&#x27;content-type&#x27;:&#x27;text/plain&#x27;})
+        self.dest.end(self.src.method+&#x27; Not Allowed&#x27;)
+        return
+      }
+
+      if (!err) {
+        self.etag = crypto.createHash(&#x27;md5&#x27;).update(stats.ino+&#x27;/&#x27;+stats.mtime+&#x27;/&#x27;+stats.size).digest(&#x22;hex&#x22;)
+        self.lastmodified = rfc822.getRFC822Date(stats.mtime)
+      }
+
+      process.nextTick(function () {
+        stopBuffering()
+      })
+
+      // 404 and 500
+      if ( err &#x26;&#x26; self.dest &#x26;&#x26; self.dest.writeHead &#x26;&#x26; // We have an error object and dest is an HTTP response
+           ( // Either we have a source and it&#x27;s a GET/HEAD or we don&#x27;t have a src
+             (self.src &#x26;&#x26; (self.src.method == &#x27;GET&#x27; || self.src.method === &#x27;HEAD&#x27;)) || (!self.src)
+           )
+         ) {
+        if (err.code === &#x27;ENOENT&#x27;) {
+          self.dest.statusCode = 404
+          self.dest.end(&#x27;Not Found&#x27;)
+        } else {
+          self.dest.statusCode = 500
+          self.dest.end(err.message)
+        }
+        return
+      }
+
+      // Source is an HTTP Server Request
+      if (self.src &#x26;&#x26; (self.src.method === &#x27;GET&#x27; || self.src.method === &#x27;HEAD&#x27;) &#x26;&#x26; self.dest) {
+        if (self.dest.setHeader) {
+          self.dest.setHeader(&#x27;content-type&#x27;, self.mimetype)
+          self.dest.setHeader(&#x27;etag&#x27;, self.etag)
+          self.dest.setHeader(&#x27;last-modified&#x27;, self.lastmodified)
+        }
+
+        if (self.dest.writeHead) {
+          if (self.src &#x26;&#x26; self.src.headers) {
+            if (self.src.headers[&#x27;if-none-match&#x27;] === self.etag ||
+                // Lazy last-modifed matching but it&#x27;s faster than parsing Datetime
+                self.src.headers[&#x27;if-modified-since&#x27;] === self.lastmodified) {
+              self.dest.statusCode = 304
+              self.dest.end()
+              return
+            }
+          }
+          // We&#x27;re going to return the whole file
+          self.dest.statusCode = 200
+          self.dest.setHeader(&#x27;content-length&#x27;, stats.size)
+        } else {
+          // Destination is not an HTTP response, GET and HEAD method are not allowed
+          return
+        }
+
+        if (self.src.method !== &#x27;HEAD&#x27;) {
+          fs.createReadStream(self.path).pipe(self.dest)
+        }
+        return
+      }
+
+      if (self.src &#x26;&#x26; (self.src.method === &#x27;PUT&#x27; || self.src.method === &#x27;POST&#x27;)) {
+        if (!err) {
+          // TODO handle overwrite case
+          return
+        }
+        stream.Stream.prototype.pipe.call(self, fs.createWriteStream(self.path))
+        if (self.dest &#x26;&#x26; self.dest.writeHead) {
+          self.on(&#x27;end&#x27;, function () {
+            self.dest.statusCode = 201
+            self.dest.setHeader(&#x27;content-length&#x27;, 0)
+            self.dest.end()
+          })
+        } ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.http-framework.generic_session" id="apidoc.module.http-framework.generic_session">module http-framework.generic_session</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.http-framework.generic_session.generic_session" id="apidoc.element.http-framework.generic_session.generic_session">
+        function <span class="apidocSignatureSpan">http-framework.</span>generic_session
+        <span class="apidocSignatureSpan">(req, res, store, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">generic_session = function (req, res, store, options) {
+  return Object.create(Session).init(req, res, store, mkoptions(options))
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.http-framework.generic_session.MemoryStore" id="apidoc.element.http-framework.generic_session.MemoryStore">
+        function <span class="apidocSignatureSpan">http-framework.generic_session.</span>MemoryStore
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">MemoryStore = function (options) {
+  if (!LRU)
+    throw new Error(&#x27;lru-cache needs to be available in order to use MemoryStore&#x27;)
+
+  var cacheOptions = extend(
+          extend({}, DEFAULT_CACHE_OPTIONS)
+        , options &#x26;&#x26; options.cache ? options.cache : {}
+      )
+    , cache        = LRU(cacheOptions)
+
+  return Object.create(MemoryStore, { _cache   : { value : cache } })
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.http-framework.generic_session.filter" id="apidoc.element.http-framework.generic_session.filter">
+        function <span class="apidocSignatureSpan">http-framework.generic_session.</span>filter
+        <span class="apidocSignatureSpan">(store, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">filter = function (store, options) {
+  options = mkoptions(options)
+  return function (req, res, next) {
+    req.session = res.session = create(req, res, store, options)
+    next()
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.http-framework.generic_session.middleware" id="apidoc.element.http-framework.generic_session.middleware">
+        function <span class="apidocSignatureSpan">http-framework.generic_session.</span>middleware
+        <span class="apidocSignatureSpan">(store, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">middleware = function (store, options) {
+  options = mkoptions(options)
+  return function (req, res, next) {
+    req.session = res.session = create(req, res, store, options)
+    next()
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.http-framework.hyperscript" id="apidoc.module.http-framework.hyperscript">module http-framework.hyperscript</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.http-framework.hyperscript.hyperscript" id="apidoc.element.http-framework.hyperscript.hyperscript">
+        function <span class="apidocSignatureSpan">http-framework.</span>hyperscript
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function h() {
+  var args = [].slice.call(arguments), e = null
+  function item (l) {
+    var r
+    function parseClass (string) {
+      var m = split(string, /([\.#]?[a-zA-Z0-9_-]+)/)
+      if(/^\.|#/.test(m[1]))
+        e = document.createElement(&#x27;div&#x27;)
+      forEach(m, function (v) {
+        var s = v.substring(1,v.length)
+        if(!v) return
+        if(!e)
+          e = document.createElement(v)
+        else if (v[0] === &#x27;.&#x27;)
+          ClassList(e).add(s)
+        else if (v[0] === &#x27;#&#x27;)
+          e.setAttribute(&#x27;id&#x27;, s)
+      })
+    }
+
+    if(l == null)
+      ;
+    else if(&#x27;string&#x27; === typeof l) {
+      if(!e)
+        parseClass(l)
+      else
+        e.appendChild(r = document.createTextNode(l))
+    }
+    else if(&#x27;number&#x27; === typeof l
+      || &#x27;boolean&#x27; === typeof l
+      || l instanceof Date
+      || l instanceof RegExp ) {
+        e.appendChild(r = document.createTextNode(l.toString()))
+    }
+    //there might be a better way to handle this...
+    else if (isArray(l))
+      forEach(l, item)
+    else if(isNode(l))
+      e.appendChild(r = l)
+    else if(l instanceof Text)
+      e.appendChild(r = l)
+    else if (&#x27;object&#x27; === typeof l) {
+      for (var k in l) {
+        if(&#x27;function&#x27; === typeof l[k]) {
+          if(/^on\w+/.test(k)) {
+            if (e.addEventListener){
+              e.addEventListener(k.substring(2), l[k], false)
+              cleanupFuncs.push(function(){
+                e.removeEventListener(k.substring(2), l[k], false)
+              })
+            }else{
+              e.attachEvent(k, l[k])
+              cleanupFuncs.push(function(){
+                e.detachEvent(k, l[k])
+              })
+            }
+          } else {
+            // observable
+            e[k] = l[k]()
+            cleanupFuncs.push(l[k](function (v) {
+              e[k] = v
+            }))
+          }
+        }
+        else if(k === &#x27;style&#x27;) {
+          if(&#x27;string&#x27; === typeof l[k]) {
+            e.style.cssText = l[k]
+          }else{
+            for (var s in l[k]) (function(s, v) {
+              if(&#x27;function&#x27; === typeof v) {
+                // observable
+                e.style.setProperty(s, v())
+                cleanupFuncs.push(v(function (val) {
+                  e.style.setProperty(s, val)
+                }))
+              } else
+                e.style.setProperty(s, l[k][s])
+            })(s, l[k][s])
+          }
+        } else if (k.substr(0, 5) === &#x22;data-&#x22;) {
+          DataSet(e)[k.substr(5)] = l[k]
+        } else {
+          e[k] = l[k]
+        }
+      }
+    } else if (&#x27;function&#x27; === typeof l) {
+      //assume it&#x27;s an observable!
+      var v = l()
+      e.appendChild(r = isNode(v) ? v : document.createTextNode(v))
+
+      cleanupFuncs.push(l(function (v) {
+        if(isNode(v) &#x26;&#x26; r.parentElement)
+          r.parentElement.replaceChild(v, r), r = v
+        else
+          r.textContent = v
+      }))
+    }
+
+    return r
+  }
+  while(args.length)
+    item(args.shift())
+
+  return e
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.http-framework.hyperscript.cleanup" id="apidoc.element.http-framework.hyperscript.cleanup">
+        function <span class="apidocSignatureSpan">http-framework.hyperscript.</span>cleanup
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">cleanup = function () {
+  for (var i = 0; i &#x3c; cleanupFuncs.length; i++){
+    cleanupFuncs[i]()
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.http-framework.hyperscript.context" id="apidoc.element.http-framework.hyperscript.context">
+        function <span class="apidocSignatureSpan">http-framework.hyperscript.</span>context
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function context() {
+
+  var cleanupFuncs = []
+
+  function h() {
+    var args = [].slice.call(arguments), e = null
+    function item (l) {
+      var r
+      function parseClass (string) {
+        var m = split(string, /([\.#]?[a-zA-Z0-9_-]+)/)
+        if(/^\.|#/.test(m[1]))
+          e = document.createElement(&#x27;div&#x27;)
+        forEach(m, function (v) {
+          var s = v.substring(1,v.length)
+          if(!v) return
+          if(!e)
+            e = document.createElement(v)
+          else if (v[0] === &#x27;.&#x27;)
+            ClassList(e).add(s)
+          else if (v[0] === &#x27;#&#x27;)
+            e.setAttribute(&#x27;id&#x27;, s)
+        })
+      }
+
+      if(l == null)
+        ;
+      else if(&#x27;string&#x27; === typeof l) {
+        if(!e)
+          parseClass(l)
+        else
+          e.appendChild(r = document.createTextNode(l))
+      }
+      else if(&#x27;number&#x27; === typeof l
+        || &#x27;boolean&#x27; === typeof l
+        || l instanceof Date
+        || l instanceof RegExp ) {
+          e.appendChild(r = document.createTextNode(l.toString()))
+      }
+      //there might be a better way to handle this...
+      else if (isArray(l))
+        forEach(l, item)
+      else if(isNode(l))
+        e.appendChild(r = l)
+      else if(l instanceof Text)
+        e.appendChild(r = l)
+      else if (&#x27;object&#x27; === typeof l) {
+        for (var k in l) {
+          if(&#x27;function&#x27; === typeof l[k]) {
+            if(/^on\w+/.test(k)) {
+              if (e.addEventListener){
+                e.addEventListener(k.substring(2), l[k], false)
+                cleanupFuncs.push(function(){
+                  e.removeEventListener(k.substring(2), l[k], false)
+                })
+              }else{
+                e.attachEvent(k, l[k])
+                cleanupFuncs.push(function(){
+                  e.detachEvent(k, l[k])
+                })
+              }
+            } else {
+              // observable
+              e[k] = l[k]()
+              cleanupFuncs.push(l[k](function (v) {
+                e[k] = v
+              }))
+            }
+          }
+          else if(k === &#x27;style&#x27;) {
+            if(&#x27;string&#x27; === typeof l[k]) {
+              e.style.cssText = l[k]
+            }else{
+              for (var s in l[k]) (function(s, v) {
+                if(&#x27;function&#x27; === typeof v) {
+                  // observable
+                  e.style.setProperty(s, v())
+                  cleanupFuncs.push(v(function (val) {
+                    e.style.setProperty(s, val)
+                  }))
+                } else
+                  e.style.setProperty(s, l[k][s])
+              })(s, l[k][s])
+            }
+          } else if (k.substr(0, 5) === &#x22;data-&#x22;) {
+            DataSet(e)[k.substr(5)] = l[k]
+          } else {
+            e[k] = l[k]
+          }
+        }
+      } else if (&#x27;function&#x27; === typeof l) {
+        //assume it&#x27;s an observable!
+        var v = l()
+        e.appendChild(r = isNode(v) ? v : document.createTextNode(v))
+
+        cleanupFuncs.push(l(function (v) {
+          if(isNode(v) &#x26;&#x26; r.parentElement)
+            r.parentElement.replaceChild(v, r), r = v
+          else
+            r.textContent = v
+        }))
+      }
+
+      return r
+    }
+    while(args.length)
+      item(args.shift())
+
+    return e
+  }
+
+  h.cleanup = function () {
+    for (var i = 0; i &#x3c; cleanupFuncs.length; i++){
+      cleanupFuncs[i]()
+    }
+  }
+
+  return h
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.http-framework.multiparty" id="apidoc.module.http-framework.multiparty">module http-framework.multiparty</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.http-framework.multiparty.Form" id="apidoc.element.http-framework.multiparty.Form">
+        function <span class="apidocSignatureSpan">http-framework.multiparty.</span>Form
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Form(options) {
+  var self = this;
+  stream.Writable.call(self);
+
+  options = options || {};
+
+  self.error = null;
+  self.finished = false;
+
+  self.autoFields = !!options.autoFields;
+  self.autoFiles = !!options.autoFiles;
+
+  self.maxFields = options.maxFields || 1000;
+  self.maxFieldsSize = options.maxFieldsSize || 2 * 1024 * 1024;
+  self.uploadDir = options.uploadDir || os.tmpDir();
+  self.encoding = options.encoding || &#x27;utf8&#x27;;
+  self.hash = options.hash || false;
+
+  self.bytesReceived = 0;
+  self.bytesExpected = null;
+
+  self.openedFiles = [];
+  self.totalFieldSize = 0;
+  self.totalFieldCount = 0;
+  self.flushing = 0;
+
+  self.backpressure = false;
+  self.writeCbs = [];
+
+  if (options.boundary) setUpParser(self, options.boundary);
+
+  self.on(&#x27;newListener&#x27;, function(eventName) {
+    if (eventName === &#x27;file&#x27;) {
+      self.autoFiles = true;
+    } else if (eventName === &#x27;field&#x27;) {
+      self.autoFields = true;
+    }
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.http-framework.pwd" id="apidoc.module.http-framework.pwd">module http-framework.pwd</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.http-framework.pwd.hash" id="apidoc.element.http-framework.pwd.hash">
+        function <span class="apidocSignatureSpan">http-framework.pwd.</span>hash
+        <span class="apidocSignatureSpan">(pwd, salt, fn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">hash = function (pwd, salt, fn){
+  if (3 == arguments.length) {
+    if (!pwd) return fn(new Error(&#x27;password missing&#x27;));
+    if (!salt) return fn(new Error(&#x27;salt missing&#x27;));
+    crypto.pbkdf2(pwd, salt, iterations, len, fn);
+  } else {
+    fn = salt;
+    if (!pwd) return fn(new Error(&#x27;password missing&#x27;));
+    crypto.randomBytes(len, function(err, salt){
+      if (err) return fn(err);
+      salt = salt.toString(&#x27;base64&#x27;);
+      crypto.pbkdf2(pwd, salt, iterations, len, function(err, hash){
+        if (err) return fn(err);
+        fn(null, salt, hash);
+      });
+    });
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.http-framework.pwd.iterations" id="apidoc.element.http-framework.pwd.iterations">
+        function <span class="apidocSignatureSpan">http-framework.pwd.</span>iterations
+        <span class="apidocSignatureSpan">(n)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">iterations = function (n){
+  if (0 == arguments.length) return iterations;
+  iterations = n;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.http-framework.pwd.length" id="apidoc.element.http-framework.pwd.length">
+        function <span class="apidocSignatureSpan">http-framework.pwd.</span>length
+        <span class="apidocSignatureSpan">(n)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">length = function (n){
+  if (0 == arguments.length) return len;
+  len = n;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.http-framework.redsess" id="apidoc.module.http-framework.redsess">module http-framework.redsess</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.http-framework.redsess.redsess" id="apidoc.element.http-framework.redsess.redsess">
+        function <span class="apidocSignatureSpan">http-framework.</span>redsess
+        <span class="apidocSignatureSpan">(req, res, opt)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function RedSess(req, res, opt) {
+  if (!(this instanceof RedSess))
+    return new RedSess(req, res, opt)
+
+  opt = opt || {}
+  if (!RedSess.client &#x26;&#x26; !opt.client) {
+    console.error(&#x27;RedSess: no client yet&#x27;, req.url, req.headers)
+    res.statusCode = 503
+    res.setHeader(&#x27;content-type&#x27;, &#x27;text/plain&#x27;)
+    res.setHeader(&#x27;retry-after&#x27;, &#x27;10&#x27;)
+    res.end(&#x27;Redis client not yet loaded.\n&#x27;)
+    return
+  }
+
+  // if we got an array of strings rather than a keygrip, then
+  // keygrip it up.
+  if (opt.keys) {
+    if (!KeyGrip)
+      throw new Error(&#x27;keys provided by KeyGrip not available&#x27;)
+    else if (Array.isArray(opt.keys))
+      this.keys = new KeyGrip(opt.keys)
+    else if (opt.keys instanceof KeyGrip)
+      this.keys = opt.keys
+    else
+      throw new Error(&#x27;invalid keys provided&#x27;)
+  }
+
+  // 2 week sessions by default.
+  this.expire = opt.expire || 60 * 60 * 24 * 14
+
+  // set up the cookies thingie
+  this.cookies = opt.cookies || new Cookies(req, res, this.keys)
+
+  // set the s-cookie
+  var name = this.cookieName = opt.cookieName || &#x27;s&#x27;
+  var expireDate = new Date(Date.now() + (this.expire*1000))
+  var cookieOptions = opt &#x26;&#x26; opt.cookieOptions || {}
+  var copt = util._extend({
+    expires: expireDate,
+    signed: !!this.keys
+  }, cookieOptions)
+
+  var s = this.cookies.get(name, copt)
+  if (!s)
+    s = require(&#x27;crypto&#x27;).randomBytes(30).toString(&#x27;base64&#x27;)
+
+  this.cookies.set(name, s, copt)
+  this.token = s
+
+  if (!this.token)
+    throw new Error(&#x27;could not load session token&#x27;)
+
+  this.id = &#x22;session:&#x22; + this.token
+  this.client = opt.client || RedSess.client
+  this.request = req
+  this.response = res
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.http-framework.redsess.close" id="apidoc.element.http-framework.redsess.close">
+        function <span class="apidocSignatureSpan">http-framework.redsess.</span>close
+        <span class="apidocSignatureSpan">(cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">close = function (cb) {
+  if (!RedSess.client)
+    return cb &#x26;&#x26; cb()
+  if (cb)
+    RedSess.client.once(&#x22;end&#x22;, cb)
+  RedSess.client.quit()
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.http-framework.redsess.createClient" id="apidoc.element.http-framework.redsess.createClient">
+        function <span class="apidocSignatureSpan">http-framework.redsess.</span>createClient
+        <span class="apidocSignatureSpan">(conf)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">createClient = function (conf) {
+  conf = conf || {}
+  RedSess.client = redis.createClient(conf.port, conf.host, conf)
+  if (conf.auth)
+    RedSess.client.auth(conf.auth)
+  return RedSess.client
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.http-framework.redsess.destroy" id="apidoc.element.http-framework.redsess.destroy">
+        function <span class="apidocSignatureSpan">http-framework.redsess.</span>destroy
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">destroy = function () {
+  RedSess.client.end()
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.http-framework.redsess.end" id="apidoc.element.http-framework.redsess.end">
+        function <span class="apidocSignatureSpan">http-framework.redsess.</span>end
+        <span class="apidocSignatureSpan">(cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">end = function (cb) {
+  if (!RedSess.client)
+    return cb &#x26;&#x26; cb()
+  if (cb)
+    RedSess.client.once(&#x22;end&#x22;, cb)
+  RedSess.client.quit()
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.http-framework.redsess.quit" id="apidoc.element.http-framework.redsess.quit">
+        function <span class="apidocSignatureSpan">http-framework.redsess.</span>quit
+        <span class="apidocSignatureSpan">(cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">quit = function (cb) {
+  if (!RedSess.client)
+    return cb &#x26;&#x26; cb()
+  if (cb)
+    RedSess.client.once(&#x22;end&#x22;, cb)
+  RedSess.client.quit()
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.http-framework.redsess.prototype" id="apidoc.module.http-framework.redsess.prototype">module http-framework.redsess.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.http-framework.redsess.prototype.del" id="apidoc.element.http-framework.redsess.prototype.del">
+        function <span class="apidocSignatureSpan">http-framework.redsess.prototype.</span>del
+        <span class="apidocSignatureSpan">(k, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">del = function (k, cb) {
+  if (typeof k === &#x27;function&#x27; || !k &#x26;&#x26; !cb)
+    return this.delAll(k || cb)
+
+  // actually, delete all keys starting with k:* as well
+  this.client.hkeys(this.id, function (er, keys) {
+    if (er)
+      return cb &#x26;&#x26; cb(er)
+
+    var keys = keys.filter(function (key) {
+      return key.split(/:/)[0] === k
+    })
+
+    if (!keys.length)
+      return cb &#x26;&#x26; cb()
+
+    keys.unshift(this.id)
+    this.client.hdel(keys, function (er) {
+      this.client.expire(this.id, this.expire)
+      if (cb)
+        return cb(er)
+    }.bind(this))
+  }.bind(this))
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.http-framework.redsess.prototype.delAll" id="apidoc.element.http-framework.redsess.prototype.delAll">
+        function <span class="apidocSignatureSpan">http-framework.redsess.prototype.</span>delAll
+        <span class="apidocSignatureSpan">(cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">delAll = function (cb) {
+  this.client.del(this.id, cb || function(){})
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.http-framework.redsess.prototype.destroy" id="apidoc.element.http-framework.redsess.prototype.destroy">
+        function <span class="apidocSignatureSpan">http-framework.redsess.prototype.</span>destroy
+        <span class="apidocSignatureSpan">(cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">destroy = function (cb) {
+  this.client.del(this.id, function (er) {
+    this.cookies.set(this.cookieName, &#x27;&#x27;, {
+      expires: new Date(0),
+      signed: !!this.keys
+    })
+    cb(er)
+  }.bind(this))
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.http-framework.redsess.prototype.get" id="apidoc.element.http-framework.redsess.prototype.get">
+        function <span class="apidocSignatureSpan">http-framework.redsess.prototype.</span>get
+        <span class="apidocSignatureSpan">(k, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">get = function (k, cb) {
+  if (typeof k === &#x27;function&#x27; || !k)
+    return this.getAll(k || cb)
+
+  if (!cb)
+    return this.client.expire(this.id, this.expire)
+
+  this.getAll(function (er, all) {
+    if (er || !all)
+      return cb(er, null)
+    return cb(null, all.hasOwnProperty(k) ? all[k] : null)
+  }.bind(this))
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.http-framework.redsess.prototype.getAll" id="apidoc.element.http-framework.redsess.prototype.getAll">
+        function <span class="apidocSignatureSpan">http-framework.redsess.prototype.</span>getAll
+        <span class="apidocSignatureSpan">(cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getAll = function (cb) {
+  // if no cb, then just update the expiration
+  if (!cb)
+    return this.client.expire(this.id, this.expire)
+
+  this.client.hgetall(this.id, function (er, data) {
+    this.client.expire(this.id, this.expire)
+    if (!er)
+      data = unflatten(data)
+    cb(er, data)
+  }.bind(this))
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.http-framework.redsess.prototype.set" id="apidoc.element.http-framework.redsess.prototype.set">
+        function <span class="apidocSignatureSpan">http-framework.redsess.prototype.</span>set
+        <span class="apidocSignatureSpan">(k, v, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">set = function (k, v, cb) {
+  var kv = {}
+
+  if (typeof v === &#x27;function&#x27;)
+    cb = v, v = null
+
+  if (v)
+    kv[k] = v
+  else
+    kv = k
+
+
+  kv = flatten(kv)
+  this.client.hmset(this.id, kv, function (er) {
+    this.client.expire(this.id, this.expire)
+    if (cb)
+      return cb(er)
+  }.bind(this))
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.http-framework.st" id="apidoc.module.http-framework.st">module http-framework.st</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.http-framework.st.st" id="apidoc.element.http-framework.st.st">
+        function <span class="apidocSignatureSpan">http-framework.</span>st
+        <span class="apidocSignatureSpan">(opt)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function st(opt) {
+  var p, u
+  if (typeof opt === &#x27;string&#x27;) {
+    p = opt
+    opt = arguments[1]
+    if (typeof opt === &#x27;string&#x27;) {
+      u = opt
+      opt = arguments[2]
+    }
+  }
+
+  if (!opt) opt = {}
+  else opt = util._extend({}, opt)
+
+  if (!p) p = opt.path
+  if (typeof p !== &#x27;string&#x27;) throw new Error(&#x27;no path specified&#x27;)
+  p = path.resolve(p)
+  if (!u) u = opt.url
+  if (!u) u = &#x27;&#x27;
+  if (u.charAt(0) !== &#x27;/&#x27;) u = &#x27;/&#x27; + u
+
+  opt.url = u
+  opt.path = p
+
+  var m = new Mount(opt)
+  var fn = m.serve.bind(m)
+  fn._this = m
+  return fn
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.http-framework.st.Mount" id="apidoc.element.http-framework.st.Mount">
+        function <span class="apidocSignatureSpan">http-framework.st.</span>Mount
+        <span class="apidocSignatureSpan">(opt)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Mount(opt) {
+  if (!opt) throw new Error(&#x27;no options provided&#x27;)
+  if (typeof opt !== &#x27;object&#x27;) throw new Error(&#x27;invalid options&#x27;)
+  if (!(this instanceof Mount)) return new Mount(opt)
+
+  this.opt = opt
+  this.url = opt.url
+  this.path = opt.path
+  this._index = opt.index === false ? false
+              : typeof opt.index === &#x27;string&#x27; ? opt.index
+              : true
+  this.fdman = FD()
+
+  // cache basically everything
+  var c = this.getCacheOptions(opt)
+  this.cache = {
+    fd: AC(c.fd),
+    stat: AC(c.stat),
+    index: AC(c.index),
+    readdir: AC(c.readdir),
+    content: AC(c.content)
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
